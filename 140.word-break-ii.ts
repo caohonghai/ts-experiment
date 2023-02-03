@@ -6,9 +6,9 @@
 
 // @lc code=start
 interface Item {
-    pre: number,
-    next: number,
-    res: string
+    pre: number;
+    next: number;
+    res: string;
 }
 // 参考139题
 // Tips:
@@ -35,24 +35,23 @@ function _wordBreak(s: string, wordDict: string[]): string[] {
     let ans: string[] = [];
     const bfs = (): void => {
         let queue: Item[] = new Array(1e4);
-        let hh = 0, tt = -1;
-        queue[++tt] = { pre: -1, next: 0, res: '' }
+        let hh = 0,
+            tt = -1;
+        queue[++tt] = { pre: -1, next: 0, res: '' };
         while (hh <= tt) {
             const { pre, next, res } = queue[hh++];
             const arr = mp.get(next);
-            if (next === len)
-                ans.push(res + s.slice(pre, next));
+            if (next === len) ans.push(res + s.slice(pre, next));
             arr?.forEach(n => {
                 queue[++tt] = {
                     pre: next,
                     next: n,
-                    res: pre === -1 ? '' : res + s.slice(pre, next) + ' '
-                }
-            })
+                    res: pre === -1 ? '' : res + s.slice(pre, next) + ' ',
+                };
+            });
         }
-    }
+    };
     bfs();
     return ans;
-};
+}
 // @lc code=end
-

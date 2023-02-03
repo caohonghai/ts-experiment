@@ -7,7 +7,9 @@
 // @lc code=start
 // http://int-e.eu/~bf3/squares/view.html#16,17
 function tilingRectangle(n: number, m: number): number {
-    const cover: number[][] = new Array(n + 1).fill(0).map(() => new Array(m + 1).fill(0));
+    const cover: number[][] = new Array(n + 1)
+        .fill(0)
+        .map(() => new Array(m + 1).fill(0));
     let ans = Infinity;
     if (n === m) return 1;
     let cur = 0;
@@ -15,13 +17,14 @@ function tilingRectangle(n: number, m: number): number {
         // cut
         if (cur >= ans) return;
         let full = true;
-        let r: number = -1, c: number = -1;
+        let r: number = -1,
+            c: number = -1;
         // check if it's filled
         for (let i = 0; i < n && full; i++) {
             for (let j = 0; j < m && full; j++) {
                 if (cover[i][j] === 0) {
                     full = false;
-                    r = i, c = j;
+                    (r = i), (c = j);
                 }
             }
         }
@@ -35,25 +38,21 @@ function tilingRectangle(n: number, m: number): number {
             let empty = true;
             for (let i = r; i < r + len && empty; i++)
                 for (let j = c; j < c + len && empty; j++)
-                    if (cover[i][j] === 1)
-                        empty = false;
+                    if (cover[i][j] === 1) empty = false;
             // cut
             if (!empty) continue;
             // coverage of specified areas
             for (let i = r; i < r + len; i++)
-                for (let j = c; j < c + len; j++)
-                    cover[i][j] = 1;
+                for (let j = c; j < c + len; j++) cover[i][j] = 1;
             // iterate next len
             dfs(n, m, cur + 1);
             // backtracking
             for (let i = r; i < r + len; i++)
-                for (let j = c; j < c + len; j++)
-                    cover[i][j] = 0;
+                for (let j = c; j < c + len; j++) cover[i][j] = 0;
         }
-    }
+    };
     dfs(n, m, cur);
     return ans;
-};
+}
 
 // @lc code=end
-

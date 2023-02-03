@@ -5,7 +5,11 @@
  */
 
 // @lc code=start
-function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
+function jobScheduling(
+    startTime: number[],
+    endTime: number[],
+    profit: number[],
+): number {
     const n = startTime.length;
     const list = new Array<Array<number>>();
     for (let i = 0; i < n; i++)
@@ -17,16 +21,16 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
         const [s, e, p] = list[i - 1];
         f[i] = Math.max(f[i - 1], p);
         // bin-search in order to find the maximum f[j] value;
-        let l = 0, r = i - 1;
+        let l = 0,
+            r = i - 1;
         while (l < r) {
             let mid = (l + r + 1) >> 1;
             if (list[mid][1] <= s) l = mid;
-            else r = mid - 1
+            else r = mid - 1;
         }
         if (list[r][1] <= s) f[i] = Math.max(f[i], f[r + 1] + p);
     }
     return f[n];
-};
+}
 
 // @lc code=end
-

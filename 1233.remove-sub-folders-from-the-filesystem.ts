@@ -10,10 +10,15 @@ function removeSubfolders(folder: string[]): string[] {
     let res: string[] = [folder[0]];
     for (let i = 1; i < folder.length; i++) {
         const back = res[res.length - 1];
-        if (folder[i].length <= back.length || !(folder[i].startsWith(back) && folder[i].charAt(back.length) === '/'))
+        if (
+            folder[i].length <= back.length ||
+            !(
+                folder[i].startsWith(back) &&
+                folder[i].charAt(back.length) === '/'
+            )
+        )
             res.push(folder[i]);
     }
     return res;
-};
+}
 // @lc code=end
-

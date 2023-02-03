@@ -20,7 +20,6 @@ function numberOfSubarrays(nums: number[], k: number): number {
         res += mp.get(sum[i] + k) ?? 0;
     }
     return res;
-};
+}
 
 // @lc code=end
-

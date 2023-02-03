@@ -18,8 +18,7 @@ function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
         stack.push(nums2[i]);
     }
     let res: number[] = [];
-    nums1.map(i => res.push(mp.get(i) || -1))
+    nums1.map(i => res.push(mp.get(i) || -1));
     return res;
-};
+}
 // @lc code=end
-

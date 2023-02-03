@@ -38,4 +38,3 @@ function balancedString(s: string): number {
     return minLength;
 }
 // @lc code=end
-

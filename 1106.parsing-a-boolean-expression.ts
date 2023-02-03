@@ -15,11 +15,14 @@ function parseBoolExpr(expression: string): boolean {
         }
         if (s[i] === ',') continue;
         const back = stack[stack.length - 1] === 't' ? true : false;
-        let _and = back, _or = back, _not = !back;
+        let _and = back,
+            _or = back,
+            _not = !back;
         stack.pop();
         while (stack.length && stack[stack.length - 1] !== '(') {
             const back = stack[stack.length - 1] === 't' ? true : false;
-            _and = _and && back; _or = _or || back;
+            _and = _and && back;
+            _or = _or || back;
             stack.pop();
         }
         stack.pop();
@@ -39,6 +42,5 @@ function parseBoolExpr(expression: string): boolean {
         }
     }
     return stack[0] === 't' ? true : false;
-};
+}
 // @lc code=end
-

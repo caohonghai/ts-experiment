@@ -11,10 +11,8 @@ function reachNumber(target: number): number {
     for (let i = 1; i < 0x3f3f3f3f; i++) {
         res += i;
         if (res === target) return i;
-        if (res > target && !((res - target) & 1))
-            return i;
+        if (res > target && !((res - target) & 1)) return i;
     }
     return 0;
-};
+}
 // @lc code=end
-

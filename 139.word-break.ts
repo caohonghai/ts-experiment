@@ -18,6 +18,5 @@ function wordBreak(s: string, wordDict: string[]): boolean {
         }
     }
     return f[len];
-};
+}
 // @lc code=end
-
