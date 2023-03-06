@@ -17,3 +17,13 @@ In TypeScript, there are no built-in implementations of common data structures s
 Two methods have been used to implement the **Stack** data structure. One method is through arrays, and the other is through hash tables. The purpose is to be able to determine whether an element exists in the stack in `O(1)` time complexity.
 
 [view the code](./structure/Stack.ts)
+
+It is planned to update the warehouse to use a TS project. Different directories represent different content, for example:
+
+| Contents   | Contents                                 |
+| ---------- | ---------------------------------------- |
+| record     | leetcode topic collection                |
+| structure  | TypeScript related data custom structure |
+| experiment | Experiments with common problems         |
+
+In addition, the project is connected to the jest code unit test. For jest-related content, you can view it in detail [jestjs.io](https://jestjs.io/docs/getting-started)。
