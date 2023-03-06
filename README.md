@@ -1,6 +1,8 @@
+[CN](./README_CN.md)
+
 # Introduce
 
-This repository is mainly used to record my leetcode exercises
+This repository is mainly used to record my leetcode exercises, algorithm templates, and other related exercises.
 
 > You can submit a PR and share your better code with us (please use JavaScript/TypeScript)
 
@@ -12,15 +14,11 @@ When submitting code, you need to use the unified **prettier** rules for code fo
 
 In TypeScript, there are no built-in implementations of common data structures such as queues and stacks. Therefore, we have provided some utility classes for data structures in the `structure` directory, which make it easy for me to use them when solving problems.
 
-## Stack
+# Catalogue Introduction
 
-Two methods have been used to implement the **Stack** data structure. One method is through arrays, and the other is through hash tables. The purpose is to be able to determine whether an element exists in the stack in `O(1)` time complexity.
+It is planned to update the repository to use a TS project. Different directories represent different content, for example:
 
-[view the code](./structure/Stack.ts)
-
-It is planned to update the warehouse to use a TS project. Different directories represent different content, for example:
-
-| Contents   | Contents                                 |
+| Catalogue  | Abstract                                 |
 | ---------- | ---------------------------------------- |
 | record     | leetcode topic collection                |
 | structure  | TypeScript related data custom structure |
