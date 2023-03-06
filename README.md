@@ -1,4 +1,4 @@
-[CN](./README_CN.md)
+[Read in CN](./README_CN.md)
 
 # Introduce
 
@@ -14,14 +14,19 @@ When submitting code, you need to use the unified **prettier** rules for code fo
 
 In TypeScript, there are no built-in implementations of common data structures such as queues and stacks. Therefore, we have provided some utility classes for data structures in the `structure` directory, which make it easy for me to use them when solving problems.
 
+## Stack
+
+Two methods have been used to implement the **Stack** data structure. One method is through arrays, and the other is through hash tables. The purpose is to be able to determine whether an element exists in the stack in `O(1)` time complexity.
+
 # Catalogue Introduction
 
 It is planned to update the repository to use a TS project. Different directories represent different content, for example:
 
 | Catalogue  | Abstract                                 |
 | ---------- | ---------------------------------------- |
-| record     | leetcode topic collection                |
+| record     | Leetcode topic collection                |
 | structure  | TypeScript related data custom structure |
 | experiment | Experiments with common problems         |
+| utils      | Some commonly used tools                 |
 
 In addition, the project is connected to the jest code unit test. For jest-related content, you can view it in detail [jestjs.io](https://jestjs.io/docs/getting-started)。

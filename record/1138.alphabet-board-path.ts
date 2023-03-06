@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-interface Queue {
+interface MyQueue {
     position: number[];
     result: string;
 }
@@ -30,16 +30,20 @@ function alphabetBoardPath(target: string): string {
             dx >= 0 && dy >= 0 && ((dx === 5 && dy < 1) || (dx <= 4 && dy <= 4))
         );
     };
-    const bfs = (position: number[], target: string, result: string): Queue => {
+    const bfs = (
+        position: number[],
+        target: string,
+        result: string,
+    ): MyQueue => {
         const st: boolean[][] = new Array(6)
             .fill(false)
             .map(_ => new Array(6).fill(false));
-        const q: Queue[] = new Array(10001).fill(null);
+        const q: MyQueue[] = new Array(10001).fill(null);
         let hh = 0,
             tt = -1;
         q[++tt] = { position, result };
         while (hh <= tt) {
-            const head: Queue = q[hh++];
+            const head: MyQueue = q[hh++];
             const [x, y] = head.position;
             st[x][y] = true;
             if (board[x][y] === target) return head;
@@ -61,7 +65,7 @@ function alphabetBoardPath(target: string): string {
         y = 0;
     let res = '';
     for (let i = 0; i < target.length; i++) {
-        const ret: Queue = bfs([x, y], target[i], res);
+        const ret: MyQueue = bfs([x, y], target[i], res);
         [x, y] = ret.position;
         res = ret.result + '!';
     }
