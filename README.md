@@ -18,6 +18,62 @@ In TypeScript, there are no built-in implementations of common data structures s
 
 Two methods have been used to implement the **Stack** data structure. One method is through arrays, and the other is through hash tables. The purpose is to be able to determine whether an element exists in the stack in `O(1)` time complexity.
 
+[view the code](./structure/Stack.ts)
+
+| Method Name   | Function                              |
+| ------------- | ------------------------------------- |
+| push(element) | Insert a new node into the stack      |
+| pop()         | Get the top node on the stack and pop |
+| peek()        | Get the top node on the stack         |
+| isEmpty()     | Determine if the stack is empty       |
+| size()        | The number of data in the stack       |
+| clear()       | Clear the stack                       |
+
+## BST
+
+[view the code](./structure/BST.ts)
+
+| Method Name         | Function                                       |
+| ------------------- | ---------------------------------------------- |
+| insert(key)         | Insert a new node into the tree                |
+| search(key)         | Find a node in the tree                        |
+| remove(key)         | Remove a node from the tree                    |
+| min()               | Return the minimum value of a node in the tree |
+| max()               | Return the maximum node in the tree            |
+| preOrderTraverse()  | Traverse all nodes in pre-order                |
+| inOrderTraverse()   | Traverse all nodes in in-order                 |
+| postOrderTraverse() | Traverse all nodes in post-order               |
+
+Additional methods:
+
+```ts
+preOrderTraverseNode(
+    node: TreeNode<T> | null = this.root,
+    callback?: (value: T) => {},
+): void {
+    if (node !== null) {
+        if (callback === undefined) {
+            console.log(node.val);
+        } else {
+            callback(node.val);
+        }
+        this.preOrderTraverseNode(node.left, callback);
+        this.preOrderTraverseNode(node.right, callback);
+    }
+}
+```
+
+As you can tell from the code, `preOrderTraverseNode` is passed in as a callback function for the purpose of being able to process a node's information directly.
+
+```ts
+const bst = new BST();
+bst.insert(5);
+bst.insert(3);
+bst.insert(4);
+bst.insert(2);
+bst.preOrderTraverseNode(bst.root, (v: number) => {});
+```
+
 # Catalogue Introduction
 
 It is planned to update the repository to use a TS project. Different directories represent different content, for example:
