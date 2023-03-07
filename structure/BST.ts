@@ -9,7 +9,7 @@ import { TreeNode } from './TreeNode';
  * @description: BinarySearchTree 二叉搜索树
  */
 export default class BST<T = number> {
-    protected root: TreeNode<T> | null;
+    root: TreeNode<T> | null;
 
     constructor(
         protected compareFn: ICompareFunction<T> = defaultCompare,
@@ -34,10 +34,19 @@ export default class BST<T = number> {
     /**
      * @description: 删除BST的某个值
      * @param {T} key 删除值
-     * @return {*}
+     * @return {void}
      */
     remove(key: T): void {
         this.root = this.removeTreeNode(this.root, key);
+    }
+
+    /**
+     * @description: 查询BST的某个值
+     * @param {T} key 查询值
+     * @return {boolean}
+     */
+    search(key: T): boolean {
+        return this.searchTreeNode(this.root, key);
     }
 
     /**
@@ -91,6 +100,8 @@ export default class BST<T = number> {
 
     /**
      * @description: 内部操作树 在指定子树中移除指定元素
+     * @param {TreeNode<T> | null} node 当前的 node
+     * @param {T} key 需要删除的值 key
      * @return {TreeNode<T> | null} 每次处理完后都需要将处理后的节点返回给本节点
      */
     protected removeTreeNode(
@@ -135,6 +146,23 @@ export default class BST<T = number> {
     }
 
     /**
+     * @description: 内部操作树 在指定子树中查找指定元素
+     * @param {TreeNode<T> | null} node 当前的 node
+     * @param {T} key 需要查找的值 key
+     * @return {boolean} true 存在于BST，false 不存在于BST
+     */
+    protected searchTreeNode(node: TreeNode<T> | null, key: T): boolean {
+        if (node === null) return false;
+        if (this.compareFn(key, node.val) === COMPARE.LESS_THAN) {
+            return this.searchTreeNode(node.left, key);
+        } else if (this.compareFn(key, node.val) === COMPARE.BIGGER_THAN) {
+            return this.searchTreeNode(node.right, key);
+        } else {
+            return true;
+        }
+    }
+
+    /**
      * @description: 内部方法 查找当前节点的最小值
      * @param {TreeNode} node 需要查找的节点
      * @return {TreeNode<T>} 返回最小值节点
@@ -157,4 +185,84 @@ export default class BST<T = number> {
             current = current.right;
         return current;
     }
+
+    /**
+     * @description: 内部方法 先序遍历 BST
+     * @param {TreeNode<T> | null} node 当前节点
+     * @param {Function} callback 回调
+     * @return {void}
+     */
+    preOrderTraverseNode(
+        node: TreeNode<T> | null = this.root,
+        callback?: (value: T) => any,
+    ): void {
+        if (node !== null) {
+            if (callback === undefined) {
+                console.log(node.val);
+            } else {
+                callback(node.val);
+            }
+            this.preOrderTraverseNode(node.left, callback);
+            this.preOrderTraverseNode(node.right, callback);
+        }
+    }
+
+    /**
+     * @description: 内部方法 中序遍历 BST
+     * @param {TreeNode<T> | null} node 当前节点
+     * @param {Function} callback 回调
+     * @return {void}
+     */
+    inOrderTraverseNode(
+        node: TreeNode<T> | null = this.root,
+        callback?: (value: T) => any,
+    ): void {
+        if (node !== null) {
+            this.inOrderTraverseNode(node.left, callback);
+            if (callback === undefined) {
+                console.log(node.val);
+            } else {
+                callback(node.val);
+            }
+            this.inOrderTraverseNode(node.right, callback);
+        }
+    }
+
+    /**
+     * @description: 内部方法 后序遍历 BST
+     * @param {TreeNode<T> | null} node 当前节点
+     * @param {Function} callback 回调
+     * @return {void}
+     */
+    postOrderTraverseNode(
+        node: TreeNode<T> | null = this.root,
+        callback?: (value: T) => any,
+    ): void {
+        if (node !== null) {
+            this.postOrderTraverseNode(node.left, callback);
+            this.postOrderTraverseNode(node.right, callback);
+            if (callback === undefined) {
+                console.log(node.val);
+            } else {
+                callback(node.val);
+            }
+        }
+    }
 }
+
+const bst = new BST();
+bst.insert(5);
+bst.insert(3);
+bst.insert(4);
+bst.insert(2);
+
+console.log('pre');
+bst.preOrderTraverseNode(bst.root, (v: number) => {});
+console.log('in');
+bst.inOrderTraverseNode();
+console.log('post');
+bst.postOrderTraverseNode();
+
+console.log(bst.min()?.val, 'min');
+console.log(bst.max()?.val, 'max');
+console.log(bst);
