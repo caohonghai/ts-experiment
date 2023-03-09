@@ -74,6 +74,25 @@ bst.insert(2);
 bst.preOrderTraverseNode(bst.root, (v: number) => {});
 ```
 
+## AVL
+
+AVL inherits from BST and prevents BST from going too extreme and degenerating binary trees into chained tables, where the time complexity of the lookup becomes O(N). More can be found at [OI WIKI](https://oi-wiki.org/ds/avl/)
+
+[view the code](./structure/AVL.ts)
+
+```ts
+const avl = new AVL();
+avl.insert(5);
+avl.insert(6);
+avl.insert(4);
+avl.insert(8);
+avl.insert(7);
+avl.insert(10);
+avl.insert(9);
+avl.insert(11);
+avl.inOrderTraverseNode();
+```
+
 # Catalogue Introduction
 
 It is planned to update the repository to use a TS project. Different directories represent different content, for example:
