@@ -74,6 +74,25 @@ bst.insert(2);
 bst.preOrderTraverseNode(bst.root, (v: number) => {});
 ```
 
+## AVL
+
+AVL 继承于 BST，防止 BST 过于极端的情况下，将二叉树退化成链表，查找的时间复杂度变为 O(N)。更多内容可以查看 [OI WIKI](https://oi-wiki.org/ds/avl/)
+
+[view the code](./structure/AVL.ts)
+
+```ts
+const avl = new AVL();
+avl.insert(5);
+avl.insert(6);
+avl.insert(4);
+avl.insert(8);
+avl.insert(7);
+avl.insert(10);
+avl.insert(9);
+avl.insert(11);
+avl.inOrderTraverseNode();
+```
+
 # 目录介绍
 
 计划更新存储库以使用 TS 项目。 不同的目录代表不同的内容，例如：
