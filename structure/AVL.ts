@@ -97,7 +97,11 @@ export default class AVL<T> extends BST<T> {
                 node.right = this.removeTreeNode(node.right, minNode.val);
             }
         }
-        return this.keepBalance(node);
+        const _ = this.keepBalance(node);
+        if (node === this.root) {
+            this.root = _;
+        }
+        return _;
     }
 
     /**
