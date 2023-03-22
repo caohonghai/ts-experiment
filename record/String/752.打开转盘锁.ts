@@ -1,7 +1,3 @@
-/**
- * @rating 1878
- * @type BFS
- */
 function openLock(deadends: string[], target: string): number {
     let deadendsSet = new Set(deadends); // 验证死亡数字
     let visited = new Set(['0000']); // 记录走过的路径防止走回头路
