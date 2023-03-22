@@ -10,6 +10,23 @@ This repository is mainly used to record my leetcode exercises, algorithm templa
 
 When submitting code, you need to use the unified **prettier** rules for code formatting. For code formatting in batches, you can execute `npx prettier --write .`
 
+# Catalogue Introduction
+
+It is planned to update the repository to use a TS project. Different directories represent different content, for example:
+
+| Catalogue  | Abstract                                 |
+| ---------- | ---------------------------------------- |
+| record     | Leetcode topic collection                |
+| structure  | TypeScript related data custom structure |
+| experiment | Experiments with common problems         |
+| utils      | Some commonly used tools                 |
+
+In addition, the project is connected to the jest code unit test. For jest-related content, you can view it in detail [jestjs.io](https://jestjs.io/docs/getting-started)。
+
+# Leetcode
+
+As a front-end developer, algorithmic ability is also necessary in order to use relevant knowledge to optimize problems. Leetcode is the easiest way for beginners to learn algorithms, and I plan to record related problem-solving code in the `record` folder. [view details](./record/README.md).
+
 # Data Structure
 
 In TypeScript, there are no built-in implementations of common data structures such as queues and stacks. Therefore, we have provided some utility classes for data structures in the `structure` directory, which make it easy for me to use them when solving problems.
@@ -92,16 +109,3 @@ avl.insert(9);
 avl.insert(11);
 avl.inOrderTraverseNode();
 ```
-
-# Catalogue Introduction
-
-It is planned to update the repository to use a TS project. Different directories represent different content, for example:
-
-| Catalogue  | Abstract                                 |
-| ---------- | ---------------------------------------- |
-| record     | Leetcode topic collection                |
-| structure  | TypeScript related data custom structure |
-| experiment | Experiments with common problems         |
-| utils      | Some commonly used tools                 |
-
-In addition, the project is connected to the jest code unit test. For jest-related content, you can view it in detail [jestjs.io](https://jestjs.io/docs/getting-started)。

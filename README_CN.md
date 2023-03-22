@@ -10,6 +10,23 @@
 
 提交代码时，需要使用统一的**prettier**规则进行代码格式化。 批量格式化代码，可以执行`npx prettier --write .`
 
+# 目录介绍
+
+计划更新存储库以使用 TS 项目。 不同的目录代表不同的内容，例如：
+
+| 目录       | 文摘                          |
+| ---------- | ----------------------------- |
+| record     | leetcode 题目集               |
+| structure  | TypeScript 相关数据自定义结构 |
+| experiment | 常见问题的实验                |
+| utils      | 一些常用的工具                |
+
+另外，项目连接 jest code 单元测试。 jest 相关的内容可以详细查看[jestjs.io](https://jestjs.io/docs/getting-started)。
+
+# Leetcode
+
+作为前端开发人员，算法能力也是需要具备的，这样可以合理运用相关知识去优化问题。Leetcode 是新手入门算法最简单的途径，计划在`record`文件夹下记录下相关的解题代码。[查看详情](./record/README.md)。
+
 # 数据结构
 
 在 TypeScript 中，没有内置常见数据结构的实现，例如队列和堆栈。 所以我们在`structure`目录下提供了一些数据结构的实用类，方便我在解决问题的时候使用。
@@ -92,16 +109,3 @@ avl.insert(9);
 avl.insert(11);
 avl.inOrderTraverseNode();
 ```
-
-# 目录介绍
-
-计划更新存储库以使用 TS 项目。 不同的目录代表不同的内容，例如：
-
-| 目录       | 文摘                          |
-| ---------- | ----------------------------- |
-| record     | leetcode 题目集               |
-| structure  | TypeScript 相关数据自定义结构 |
-| experiment | 常见问题的实验                |
-| utils      | 一些常用的工具                |
-
-另外，项目连接 jest code 单元测试。 jest 相关的内容可以详细查看[jestjs.io](https://jestjs.io/docs/getting-started)。
